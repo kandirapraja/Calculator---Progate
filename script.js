@@ -9,10 +9,12 @@ let prevNumber=''
 let calculationOperator=''
 let currentNumber='0'
 
+/* Tampilan Angka */
 const updateScreen = (number) => {
 calculatorScreen.value = number
 }
 
+/* Inputan Angka */
 const inputNumber = (number) => {
   if (currentNumber === '0') {
     currentNumber = number
@@ -28,6 +30,7 @@ numbers.forEach((number) =>{
   })
 })
 
+/* Input Operator Penjumlahan */
 const inputOperator = (operator) => {
   if (calculationOperator === '') {
     prevNumber = currentNumber
@@ -42,11 +45,13 @@ operators.forEach((operator) => {
   })
 })
 
+/* Hasil Penjumlahan/Button = */
 equalSign.addEventListener('click', () => {
   calculate()
   updateScreen(currentNumber)
 })
 
+/* Perhitungan kali/bagi/tambah/kurang */
 const calculate = () => {
   let result = '';
   switch (calculationOperator){
@@ -69,6 +74,7 @@ const calculate = () => {
   calculationOperator = '';
 };
 
+/* reset angka menjadi 0 */
 const clearAll = () => {
   prevNumber = ''
   calculationOperator = ''
@@ -81,6 +87,7 @@ clearBtn.addEventListener('click', () => {
   //console.log('AC button is pressed')
 })
 
+/* input koma */
 inputDecimal = (dot) => {
   if (currentNumber.includes('.')) {
     return
